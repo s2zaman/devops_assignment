@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name: install nodejs
+      apt:
+        name: nodejs
+        state: present
