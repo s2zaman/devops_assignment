@@ -23,7 +23,7 @@ terraform {
 provider "aws" {
   access_key = "XXXXXXXXXXXXXXXXXXX"
   secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-  region     = "eu-central-1" # Frankfurt region
+  region     = "eu-central-1"  # Frankfurt region
 }
 
 
