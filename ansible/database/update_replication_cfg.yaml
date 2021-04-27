@@ -5,7 +5,7 @@
 - name: update the mongod.conf file
   become: true
   copy:
-    src: ../database/resources/mongodb.conf
+    src: ../database_resources/mongodb.conf
     dest: /etc/mongod.conf
     owner: root
     group: root

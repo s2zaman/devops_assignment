@@ -10,4 +10,3 @@
     - mongodb1:27017
     - mongodb2:27017
     - mongodb3:27017
-  when: groups.mongod.index(inventory_hostname) == 0
