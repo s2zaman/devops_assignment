@@ -16,7 +16,7 @@ resource "aws_key_pair" "webserver_pub_key" {
 #-- LB and ASG for nginx server
 
 resource "aws_lb_target_group" "nginx_server_lb_tg" {
-  name_prefix          = "nginx-server-lb-tg-"
+  name                 = "nginx-server-lb-tg"
   port                 = 80
   protocol             = "HTTP"
   vpc_id               = aws_vpc.vpc.id
@@ -35,7 +35,7 @@ resource "aws_lb_target_group" "nginx_server_lb_tg" {
 }
 
 resource "aws_alb" "nginx_server_lb" {
-  name_prefix        = "nginx-server-lb-"
+  name               = "nginx-server-lb"
   load_balancer_type = "application"
   internal           = false
   security_groups    = [aws_security_group.nginx_server_lb_sg.id]
@@ -95,7 +95,7 @@ data "template_file" "nginx_server_lc_user_data" {
 #-- LB and ASG for app (nodejs) server
 
 resource "aws_elb" "app_server_lb" {
-  name_prefix        = "app-server-lb-"
+  name               = "app-server-lb"
   availability_zones = ["eu-central-1a", "eu-central-1c"]
   security_groups    = [aws_security_group.app_server_lb_sg.id]
 
