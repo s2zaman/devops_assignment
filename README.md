@@ -9,9 +9,15 @@ Execute from the root of this repository
 ```bash
 terraform init
 
+terraform validate
+
 terraform plan
 
 terraform apply
+```
+Then to destroy
+```bash
+terraform destroy
 ```
 
 ## The access keys that I used
