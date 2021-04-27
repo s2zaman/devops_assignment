@@ -1,0 +1,30 @@
+---
+- name: import the public key
+  apt_key:
+    url: https://www.mongodb.org/static/pgp/server-4.4.asc
+    state: present
+
+- name: install required libraries
+  apt:
+    name: gnupg
+    state: present
+
+- name: create a mongodb list file
+  copy:
+    src: ../database/resources/mongodb.list
+    dest: /etc/apt/sources.list.d/mongodb.list
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+
+- name: install mongodb
+  apt:
+    name: mongodb-org
+    state: present
+
+- name: start and enable mongod service
+  include_tasks: service_start.yaml

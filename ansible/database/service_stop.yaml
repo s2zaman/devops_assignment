@@ -1,0 +1,6 @@
+---
+- name: stop mongod service
+  become: true
+  service:
+    name: mongod
+    state: stopped

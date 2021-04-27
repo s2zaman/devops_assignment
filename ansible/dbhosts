@@ -1,0 +1,11 @@
+# Primary node
+[mongodb1-primary]
+<adresse ip>
+#localhost ansible_connection=local
+
+# Secondary nodes
+[mongodb2-secondary]
+<adresse ip>
+
+[mongodb3-secondary]
+<adresse ip>

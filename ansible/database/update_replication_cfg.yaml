@@ -1,0 +1,15 @@
+---
+- name: stop mongod service
+  include_tasks: service_stop.yaml
+
+- name: update the mongod.conf file
+  become: true
+  copy:
+    src: ../database/resources/mongodb.conf
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: "u=rw,g=r,o=r"
+
+- name: start and enable mongod service
+  include_tasks: service_start.yaml

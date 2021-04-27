@@ -26,17 +26,6 @@ provider "aws" {
   region     = "eu-central-1" # Frankfurt region
 }
 
-resource "aws_key_pair" "pub_key" {
-  key_name   = "assignment_ssh_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8G7ScblyK6UIG+cN/lInKvX99/5UYZ1IfEvgPayruDz/Cm/H9KctSxHMN9gM/sQ1BtqwV3U/mvBzih+xB7HlOzwO84IwpPSxtEXevh0nZalZhiIV5bGrkmqJvMSc3g7lcLTIHUZkLcPn7GkyKyl1hdusWi8uVP6I9VdBWHN0C6cTLtdnyeSjBn1rpnqs6NuixXhqInckjIY4oW3jkZUl8bbexUUJJf4EYUgsJA4Vxen1xXFPNi/airZoCzGUX4ithZHkBSOzrWXuUBE7K3hTajNEvgMqss+J5pn8SYJTDXLD1YAfgM8ykUvx3Ka/3i4cZi7ZZuBaNDValfKgW6lRHRHybobPV+o97QDGH3VMjOLGchVebtXv1QgcTZmHKTsxYYMxR0sw6Rz51/qIER7CH26Prhu0vimG4U1Lbmn8UpY1ht7r20mscXy2t1zkdEs/kMm/1GTlHWKwK2q1cZcq2sn1xSyfozVAh5xDYNG82sbbJTacm7HHJ+MAPRTPAws8="
-
-  tags = {
-    "Name" = "pub_key"
-  }
-}
-
-
-
 
 #-- outputs
 

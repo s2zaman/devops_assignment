@@ -1,0 +1,20 @@
+---
+- name: install packages
+  include_tasks: install.yaml
+  when: ((['install'] | intersect(flags)) | length > 0)
+
+- name: update replication configuration
+  include_tasks: update_replication_cfg.yaml
+  when: ((['update_replication'] | intersect(flags)) | length > 0)
+
+- name: init replicaset
+  include_tasks: init_replica_set.yml
+  when: ((['init_replica_set'] | intersect(flags)) | length > 0)
+
+- name: Add Replica Set to Cluster
+  include_tasks: add_shard_to_cluster.yml
+  when: ((['add_shard_to_cluster'] | intersect(flags)) | length > 0)
+
+- name: Create Database
+  include_tasks: create_database.yml
+  when: ((['create_database'] | intersect(flags)) | length > 0)
