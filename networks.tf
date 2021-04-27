@@ -140,7 +140,7 @@ resource "aws_route_table_association" "rt_public_subnet_b_association" {
 # Security Groups
 
 resource "aws_security_group" "nginx_server_sg" {
-  name_prefix = "nginx_server_sg-"
+  name = "nginx_server_sg"
   description = "allow http, https and ssh"
   vpc_id      = aws_vpc.vpc.id
 
@@ -175,7 +175,7 @@ resource "aws_security_group" "nginx_server_sg" {
 }
 
 resource "aws_security_group" "app_server_sg" {
-  name_prefix = "app_server_sg-"
+  name = "app_server_sg"
   description = "allow http, https and ssh"
   vpc_id      = aws_vpc.vpc.id
 
@@ -210,7 +210,7 @@ resource "aws_security_group" "app_server_sg" {
 }
 
 resource "aws_security_group" "nginx_server_lb_sg" {
-  name_prefix = "nginx_server_lb_sg-"
+  name = "nginx_server_lb_sg"
   description = "allow http, https and ssh"
   vpc_id      = aws_vpc.vpc.id
 
@@ -238,7 +238,7 @@ resource "aws_security_group" "nginx_server_lb_sg" {
 }
 
 resource "aws_security_group" "app_server_lb_sg" {
-  name_prefix = "app_server_lb_sg-"
+  name = "app_server_lb_sg"
   description = "allow http, https and ssh"
   vpc_id      = aws_vpc.vpc.id
 
@@ -266,7 +266,7 @@ resource "aws_security_group" "app_server_lb_sg" {
 }
 
 resource "aws_security_group" "db_server_sg" {
-  name_prefix = "db_server_sg-"
+  name = "db_server_sg"
   description = "allow mongodb port"
   vpc_id      = aws_vpc.vpc.id
 

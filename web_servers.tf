@@ -96,8 +96,9 @@ data "template_file" "nginx_server_lc_user_data" {
 
 resource "aws_elb" "app_server_lb" {
   name               = "app-server-lb"
-  availability_zones = ["eu-central-1a", "eu-central-1c"]
+  #availability_zones = ["eu-central-1a", "eu-central-1c"]
   security_groups    = [aws_security_group.app_server_lb_sg.id]
+  subnets            = [aws_subnet.private_subnet_a.id, aws_subnet.private_subnet_b.id]
 
   listener {
     instance_port     = 80
