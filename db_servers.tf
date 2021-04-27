@@ -17,8 +17,9 @@ resource "aws_instance" "mongodb1" {
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.dbserver_pub_key.key_name
   associate_public_ip_address = true
+  vpc_security_group_ids      = [aws_security_group.db_server_sg.id]
   availability_zone           = "eu-central-1a"
-  security_groups             = [aws_security_group.db_server_sg.name]
+  subnet_id = aws_subnet.private_subnet_a.id
 
   root_block_device {
     volume_type = "gp2"
@@ -40,9 +41,9 @@ resource "aws_instance" "mongodb2" {
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.dbserver_pub_key.key_name
   associate_public_ip_address = true
+  vpc_security_group_ids      = [aws_security_group.db_server_sg.id]
   availability_zone           = "eu-central-1b"
-  security_groups             = [aws_security_group.db_server_sg.name]
-  subnet_id = "value"
+  subnet_id = aws_subnet.private_subnet_b.id
 
   root_block_device {
     volume_type = "gp2"
@@ -53,7 +54,7 @@ resource "aws_instance" "mongodb2" {
   provisioner "local-exec" {
     command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb2.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/db_server_cfg.yaml"
   }
-  
+
   tags = {
     "Name" = "mongodb2"
   }
@@ -64,8 +65,9 @@ resource "aws_instance" "mongodb3" {
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.dbserver_pub_key.key_name
   associate_public_ip_address = true
+  vpc_security_group_ids      = [aws_security_group.db_server_sg.id]
   availability_zone           = "eu-central-1c"
-  security_groups             = [aws_security_group.db_server_sg.name]
+  subnet_id = aws_subnet.private_subnet_c.id
 
   root_block_device {
     volume_type = "gp2"
@@ -76,7 +78,7 @@ resource "aws_instance" "mongodb3" {
   provisioner "local-exec" {
     command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb3.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/db_server_cfg.yaml"
   }
-  
+
   tags = {
     "Name" = "mongodb3"
   }
