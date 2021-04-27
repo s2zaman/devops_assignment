@@ -21,8 +21,8 @@ terraform {
 }
 
 provider "aws" {
-  access_key = "AKIAUDS56RQSBVIDNX7M"
-  secret_key = "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"
+  access_key = "XXXXXXXXXXXXXXXXXXX"
+  secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
   region     = "eu-central-1" # Frankfurt region
 }
 
