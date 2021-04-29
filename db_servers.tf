@@ -28,7 +28,7 @@ resource "aws_instance" "mongodb1" {
 
   # executing with ansible provisioner
   provisioner "local-exec" {
-    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb1.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/db_server_cfg.yaml"
+    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb1.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/database/main.yaml"
   }
 
   tags = {
@@ -52,7 +52,7 @@ resource "aws_instance" "mongodb2" {
 
   # executing with ansible provisioner
   provisioner "local-exec" {
-    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb2.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/db_server_cfg.yaml"
+    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb2.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/database/main.yaml"
   }
 
   tags = {
@@ -76,7 +76,7 @@ resource "aws_instance" "mongodb3" {
 
   # executing with ansible provisioner
   provisioner "local-exec" {
-    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb3.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/db_server_cfg.yaml"
+    command = "ansible-playbook -u ubuntu -i ${aws_instance.mongodb3.public_ip}, --private-key ./ssh_keys/dbserver_ssh_key ./ansible/database/main.yaml"
   }
 
   tags = {
